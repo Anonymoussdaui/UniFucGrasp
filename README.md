@@ -1,4 +1,4 @@
-# Unifucgrasp
+# UniFucGrasp: Human-Hand-Inspired Unified Functional Grasp Annotation Strategy and Dataset for Diverse Dexterous Hands
 
 Functional Hand Gesture Generation for Diverse Robotic Hands
 

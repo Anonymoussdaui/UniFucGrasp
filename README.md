@@ -53,3 +53,41 @@ You can download our prepared dataset here,For detailed information about the da
 3. Specify redundant  remove_links names in `hand_assert.json . You can visualize the links  to identify which links are irrelevant for contact.
 4. Use `data_utils/generate_pc.py` to sample point clouds for each robot link and save them.
 5. Then, simply replace the `robot_name` in `configs/dataset/dataset.yaml` with the corresponding hand model name.
+
+
+
+
+# Functional Grasp Dataset Collection via Human-to-Robot Hand Mapping
+
+This repository provides tools and instructions to collect functional grasp data for various dexterous robotic hands by mapping human hand gestures.
+
+## Requirements
+
+- **URDF and XML files**: Required to define the robotic hand and its joints.  
+- **MuJoCo**: For simulation and real-time interaction between the robotic hand and objects.  
+- **Realsense Camera**: Intel RealSense D415 or D435 for capturing human hand gestures.  
+- **Python Packages**: `numpy`, `pybullet` or `mujoco-py`, `Open3D`, etc.  
+
+## Key Scripts
+
+### 1. `Human_Joint_Collect.py`
+- Captures human hand joint angles using the Realsense camera.  
+- Uses the K2J (Keypoint-to-Joint) module to convert keypoints to joint angles.  
+- Outputs joint angle sequences for gesture mapping.
+
+### 2. `RobotHand_Control.py`
+- Maps human hand joint angles to the robotic hand, considering its DOFs, kinematic constraints, and joint-to-motor space mapping.  
+- Actively controls the robotic hand in MuJoCo simulation to interact with objects.  
+- Records contact points, forces, and hand joint states.
+
+### 3. `Data_Postprocess.py` (optional but recommended)
+- Filters raw captured data to extract stable and functionally reliable grasps.  
+- Performs geometry-based force-closure analysis to validate grasp quality.  
+- Prepares the final dataset for training or evaluation.
+
+## Notes
+
+- Ensure that MuJoCo is installed and properly licensed before running simulations.  
+- Use a Realsense D415 or D435 camera to achieve accurate human hand joint capture.  
+- The mapping accounts for the mechanical DOFs and structural differences of each hand, ensuring human-like grasp behavior.  
+- For hands with fewer DOFs than a human hand (e.g., InspireHand), sparse mapping and scaling are applied to adapt human gestures.

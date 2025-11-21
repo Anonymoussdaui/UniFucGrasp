@@ -59,8 +59,6 @@ You can download our prepared dataset here,For detailed information about the da
 
 # Functional Grasp Dataset Collection via Human-to-Robot Hand Mapping
 
-This repository provides tools and instructions to collect functional grasp data for various dexterous robotic hands by mapping human hand gestures.
-
 ## Requirements
 
 - **URDF and XML files**: Required to define the robotic hand and its joints.  
@@ -80,7 +78,7 @@ This repository provides tools and instructions to collect functional grasp data
 - Actively controls the robotic hand in MuJoCo simulation to interact with objects.  
 - Records contact points, forces, and hand joint states.
 
-### 3. `Data_Postprocess.py` (optional but recommended)
+### 3. `Data_Postprocess.py` 
 - Filters raw captured data to extract stable and functionally reliable grasps.  
 - Performs geometry-based force-closure analysis to validate grasp quality.  
 - Prepares the final dataset for training or evaluation.

@@ -72,17 +72,27 @@ You can download our prepared dataset here,For detailed information about the da
 - Captures human hand joint angles using the Realsense camera.  
 - Uses the K2J (Keypoint-to-Joint) module to convert keypoints to joint angles.  
 - Outputs joint angle sequences for gesture mapping.
+```
+python Human_Joint_Collect.py
+
+```
 
 ### 2. `RobotHand_Control.py`
 - Maps human hand joint angles to the robotic hand, considering its DOFs, kinematic constraints, and joint-to-motor space mapping.  
 - Actively controls the robotic hand in MuJoCo simulation to interact with objects.  
 - Records contact points, forces, and hand joint states.
+```
+python RobotHand_Control.py
 
+```
 ### 3. `Data_Postprocess.py` 
 - Filters raw captured data to extract stable and functionally reliable grasps.  
 - Performs geometry-based force-closure analysis to validate grasp quality.  
 - Prepares the final dataset for training or evaluation.
+```
+python Data_Postprocess.py
 
+```
 ## Notes
 
 - Ensure that MuJoCo is installed and properly licensed before running simulations.  
